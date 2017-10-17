@@ -30,7 +30,7 @@
 
 		// 3.执行处理数据的方法
 		// xhr.onload = function(){
-		// 	console.log(xhr.readyState); //4
+		// 	console.log(this.readyState); //4
 		// 	console.log(this.responseText);
 		// }
 		// xhr.onreadystatechange = function(){
@@ -55,7 +55,6 @@
 				// console.log(this.responseText);
 				document.getElementById('text').innerHTML = this.responseText;
 			}
-			
 		}
 
 		// 4.发送请求
@@ -63,7 +62,7 @@
 
 		// console.log(123);
 	}
-	// onresdyState的五个状态码：
+	// readyState的五个状态码：
 	// 0: 请求未初始化
 	// 1: 服务器连接已建立
 	// 2: 请求已接收

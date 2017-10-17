@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax 5 - 向数据库插入数据</title>
+</head>
+<body>
+	<div id="process"></div>
+
+	<h1>AJAX POST FORM</h1>
+	<form id="postForm">
+		<input type="text" name="name" id="name2">
+		<input type="submit" value="submit">
+	</form>
+</body>
+<script>
+	document.getElementById('postForm').addEventListener('submit',postData);
+	function postData(e){
+		e.preventDefault();
+		var name = document.getElementById('name2').value;
+		var params = "name=" + name;
+		// console.log(params);
+		var xhr = new XMLHttpRequest();
+		xhr.open("post","database.php",true);
+		// POST请求一定要设置请求头
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+		xhr.onreadystatechange = function(){
+			if(this.status == 200 && this.readyState == 4){
+				document.getElementById('process').innerHTML = this.responseText;
+				console.log(this.responseText);
+			}
+		}
+		xhr.send(params);
+	}
+</script>
+</html>
